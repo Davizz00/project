@@ -34,8 +34,15 @@ function updateCell(array) {
     
     var cellIndex  = array.cellIndex;
     var rowIndex = array.parentNode.rowIndex;
-
-    my_array[rowIndex][cellIndex] = "x";
+    if(getCount %2 === 0){
+        console.log("par");
+        my_array[rowIndex][cellIndex] = "x";
+    }
+    else{
+        console.log("impar");
+        my_array[rowIndex][cellIndex] = "O";
+    }
+    
 
     console.log("row:" + rowIndex);
     console.log("col:" + cellIndex);
@@ -72,9 +79,11 @@ function print_HTML() {
         cell.onclick = function(){
             updateCell(this);  
             getCount = getCount + 1 ;
-            return getCount;
-            if(getCount > 8 ){
+            
+            if(getCount > 9 ){
                 console.log("Nuevo juego");
+                getCount = 0 
+                alert("cliqué NewGame para nuevo juego");
                 
             }
             
